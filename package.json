@@ -1,0 +1,40 @@
+{
+  "name": "swagger-docker",
+  "version": "0.0.0-semantically-released",
+  "description": "Docker image for swagger documentation.",
+  "main": "index.js",
+  "scripts": {
+    "fix": "npm run format && npm run lint -- --fix",
+    "format": "prettier --write \"**/*.{json,css,scss,md}\"",
+    "lint": "eslint .",
+    "lint:commit:ci": "commitlint-travis",
+    "start": "node index.js",
+    "dev": "nodemon -e js,json,yaml index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codfish/swagger-docker.git"
+  },
+  "author": "Chris O'Donnell <dev@codfish.io> (http://codfish.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codfish/swagger-docker/issues"
+  },
+  "homepage": "https://github.com/codfish/swagger-docker#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "js-yaml": "^3.12.1",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/travis-cli": "^7.5.2",
+    "eslint": "^5.15.2",
+    "eslint-config-codfish": "^2.3.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.16.4"
+  }
+}

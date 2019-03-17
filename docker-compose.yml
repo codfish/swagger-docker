@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  docs:
+    build: .
+    command: npx -p nodemon@1 -c "npm run dev"
+    volumes:
+      - ./swagger.yaml:/app/swagger.yaml:delegated
+    environment:
+      VIRTUAL_HOST: swagger-docker.docker

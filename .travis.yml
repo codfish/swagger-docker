@@ -1,0 +1,35 @@
+sudo: false
+
+language: node_js
+
+node_js: '10'
+
+cache:
+  directories:
+    - ~/.npm
+
+install: npm ci --no-save
+
+script:
+  - npm run lint:commit:ci
+  - npm run lint
+  - npm run test:ci
+
+jobs:
+  include:
+    - stage: release
+      language: node_js
+      node_js: '10'
+      services:
+        - docker
+      script:
+        - docker build -t codfish/swagger .
+        - npx -p semantic-release@7 -c "semantic-release"
+
+stages:
+  - name: release
+    if: branch = master AND type = push AND fork = false
+
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
