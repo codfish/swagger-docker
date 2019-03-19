@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "lint:commit:ci": "commitlint-travis",
     "start": "node index.js",
-    "dev": "nodemon -e js,json,yaml index.js"
+    "dev": "npx -p nodemon@1 -c \"npm run dev\""
   },
   "repository": {
     "type": "git",
