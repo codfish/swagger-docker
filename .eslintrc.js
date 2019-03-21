@@ -2,9 +2,9 @@ module.exports = {
   extends: ['codfish'],
   root: true,
   env: {
-    node: true
+    node: true,
   },
   rules: {
     'no-console': 'off',
-  }
+  },
 };
