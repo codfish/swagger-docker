@@ -7,7 +7,7 @@
     "fix": "npm run format && npm run lint -- --fix",
     "format": "prettier --write \"**/*.{json,css,scss,md}\"",
     "lint": "eslint .",
-    "lint:commit:ci": "commitlint-travis",
+    "validate": "commitlint-travis && npm run lint",
     "start": "node index.js",
     "dev": "npx -p nodemon@1 -c \"npm run dev\""
   },

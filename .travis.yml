@@ -11,25 +11,10 @@ cache:
 install: npm ci --no-save
 
 script:
-  - npm run lint:commit:ci
-  - npm run lint
-  - npm run test:ci
+  - npm run validate
 
-jobs:
-  include:
-    - stage: release
-      language: node_js
-      node_js: '10'
-      services:
-        - docker
-      script:
-        - docker build -t codfish/swagger .
-        - npx -p semantic-release@7 -c "semantic-release"
-
-stages:
-  - name: release
-    if: branch = master AND type = push AND fork = false
+after_success:
+  - npx -p semantic-release@7 -c "semantic-release pre && semantic-release post"
 
 branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  only: master
