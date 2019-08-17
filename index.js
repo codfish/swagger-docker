@@ -4,12 +4,15 @@ const app = require('express')();
 const swaggerUi = require('swagger-ui-express');
 const yaml = require('js-yaml');
 
+// TODO: allow options
+const options = {};
+
 // docs
 try {
   const filename = path.join(__dirname, 'swagger.yaml');
   const contents = fs.readFileSync(filename, 'utf8');
   const swaggerDocument = yaml.load(contents);
-  app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 } catch (err) {
   console.log(err.stack || String(err));
 }

@@ -1,7 +1,10 @@
 # swagger-docker
 
-Docker image for building a swagger-ui documentation application. Simply mount your `swagger.yaml` file into the `/app`
-directory.
+Docker image for building a swagger-ui documentation application. Simply mount your `swagger.yaml`
+file into the `/app` directory.
+
+Reason for building this image is because the
+[native swagger-ui image](https://hub.docker.com/r/swaggerapi/swagger-ui/) doesn't support YAML.
 
 Example `docker-compose.yml` file:
 
@@ -10,7 +13,7 @@ version: '3'
 
 services:
   docs:
-    image: codfish/swagger:v1.0.0
+    image: codfish/swagger
     command: npm run dev
     volumes:
       - ./swagger.yaml:/app/swagger.yaml:delegated
@@ -21,5 +24,6 @@ OpenAPI Specification:
 
 ## Todo
 
-- Support multiple file types
-- Add `docker` command example to readme
+- [ ] Support multiple file types
+- [ ] Add `docker` command example to readme
+- [ ] Add support for swagger-ui options
