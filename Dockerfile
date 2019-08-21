@@ -9,4 +9,4 @@ RUN npm ci --only="prod"
 COPY index.js .
 
 EXPOSE 10010
-CMD npm run start
+CMD ["npm", "run", "start"]
