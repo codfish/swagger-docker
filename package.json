@@ -28,7 +28,7 @@
     "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^8.3.4",
     "@commitlint/config-conventional": "^8.1.0",
     "@commitlint/travis-cli": "^8.1.0",
     "eslint": "^6.1.0",
