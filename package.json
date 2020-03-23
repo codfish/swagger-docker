@@ -25,7 +25,7 @@
     "express": "^4.17.1",
     "js-yaml": "^3.13.1",
     "nodemon": "^1.19.1",
-    "swagger-ui-express": "^4.0.7"
+    "swagger-ui-express": "^4.1.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
