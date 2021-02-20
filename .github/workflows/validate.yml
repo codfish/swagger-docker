@@ -1,0 +1,28 @@
+name: Validate Code
+
+on: pull_request
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: lint commits
+        run:
+          npm run lint:commit -- --from="origin/${{ github.base_ref }}"
+          --to="origin/${{github.head_ref }}"
+
+      - name: lint js
+        run: npm run lint
+
+      - name: ensure the image builds properly
+        run: docker-compose build
