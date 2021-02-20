@@ -16,6 +16,11 @@ jobs:
       - name: install dependencies
         run: npm ci
 
+      - name: lint commits
+        run:
+          npm run lint:commit -- --from="origin/${{ github.base_ref }}"
+          --to="origin/${{github.head_ref }}"
+
       - name: lint js
         run: npm run lint
 
