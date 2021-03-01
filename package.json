@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@commitlint/travis-cli": "^11.0.0",
-    "cod-scripts": "^6.0.0"
+    "cod-scripts": "^7.0.0"
   },
   "eslintConfig": {
     "extends": [
